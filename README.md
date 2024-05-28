@@ -19,15 +19,16 @@ To get started with TransLuminate, follow these steps:
    
 ```bash
 git clone https://github.com/kaushik54git/TransLuminate.git
+```bash
 
 3. Navigate to the project directory:
 ```bash
 cd TransLuminate
-
+```bash
 4. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
-
+```bash
 
 ## Usage
 
