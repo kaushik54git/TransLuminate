@@ -1,3 +1,4 @@
+![Banner](./banner.png)
 # TransLuminate
 
 TransLuminate is a Python application built using the Tkinter GUI toolkit. It features a customizable, translucent, click-through window overlay that helps in reducing eye strain by allowing users to dim their screens and apply colored filters. This tool is particularly useful for managing varying background brightness across different applications.
