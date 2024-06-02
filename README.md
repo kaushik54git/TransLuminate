@@ -1,7 +1,7 @@
 ![Banner](./banner.png)
 # TransLuminate
 
-TransLuminate is a Python application built using the Tkinter GUI toolkit. It features a customizable, translucent, click-through window overlay that helps in reducing eye strain by allowing users to dim their screens and apply colored filters. This tool is particularly useful for managing varying background brightness across different applications.
+TransLuminate is a Python application built using the Tkinter GUI toolkit. It features a customizable, translucent, click-through window overlay that helps in reducing eye strain by allowing users to dim their screens and apply colored filters. This tool is particularly useful for managing varying background brightness across different applications **in Windows Desktop **
 
 ## Features
 
@@ -11,7 +11,11 @@ TransLuminate is a Python application built using the Tkinter GUI toolkit. It fe
 - **Click-Through Capability**: Allows interaction with applications underneath the overlay, without having to disable or close the overlay.
 - **Simple User Interface**: Easy-to-use interface with a control panel for quick adjustments.
 
-## Installation
+## Stand Alone Application
+
+1. Go to [dist](dist) folder and downlaod the .exe file to execute and run the application 
+
+## Installation [For personal Customization ]
 
 To get started with TransLuminate, follow these steps:
 
