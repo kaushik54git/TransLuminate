@@ -15,18 +15,14 @@ class TransparentWindow(tk.Tk):
     def initUI(self):
         self.title("Transparent Click-Through Window")
 
-        # Configure window background color
         self.configure(bg=self.bg_color)
         
-        # Maximize the window and remove the title bar
         self.attributes('-fullscreen', True)
-        self.wm_attributes('-topmost', 1)  # Make the window stay on top
-        self.overrideredirect(1)  # Remove title bar and borders
+        self.wm_attributes('-topmost', 1)  
+        self.overrideredirect(1) 
 
-        # Schedule the click-through setup to run after the main loop starts
         self.after(100, self.make_window_click_through)
 
-        # Create a separate control window
         self.create_control_window()
 
     def create_control_window(self):
