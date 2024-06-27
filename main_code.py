@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter.colorchooser import askcolor
+from tkinter import messagebox
 import win32api
 import win32gui
 import win32con
@@ -15,14 +16,18 @@ class TransparentWindow(tk.Tk):
     def initUI(self):
         self.title("Transparent Click-Through Window")
 
+        # Configure window background color
         self.configure(bg=self.bg_color)
         
+        # Maximize the window and remove the title bar
         self.attributes('-fullscreen', True)
-        self.wm_attributes('-topmost', 1)  
-        self.overrideredirect(1) 
+        self.wm_attributes('-topmost', 1)  # Make the window stay on top
+        self.overrideredirect(1)  # Remove title bar and borders
 
+        # Schedule the click-through setup to run after the main loop starts
         self.after(100, self.make_window_click_through)
 
+        # Create a separate control window
         self.create_control_window()
 
     def create_control_window(self):
@@ -55,7 +60,17 @@ class TransparentWindow(tk.Tk):
 
     def update_transparency(self, value):
         self.transparency_value = int(value)
-        win32gui.SetLayeredWindowAttributes(self.hwnd, win32api.RGB(0, 0, 0), self.transparency_value, win32con.LWA_ALPHA)
+        if self.transparency_value <= 210:
+            self.error_shown = False  # Reset error flag
+            win32gui.SetLayeredWindowAttributes(self.hwnd, win32api.RGB(0, 0, 0), self.transparency_value, win32con.LWA_ALPHA)
+        else:
+            if not self.error_shown:
+                self.error_shown = True
+                messagebox.showerror("Too Dim", "It's going to be too dim, you may not be able to see the screen")
+                self.slider.set(200)
+                self.transparency_value = 200
+                self.after(100, self.reset_error_flag)
+                win32gui.SetLayeredWindowAttributes(self.hwnd, win32api.RGB(0, 0, 0), self.transparency_value, win32con.LWA_ALPHA)
 
     def choose_color(self):
         color = askcolor()[1]
